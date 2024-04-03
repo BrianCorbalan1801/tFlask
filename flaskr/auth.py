@@ -15,6 +15,7 @@ def register():
         username = request.form['username']
         password = request.form['password']
         veri_password = request.form['veri_password']
+        veri_email = request.form['veri_email']
         db = get_db()
         error = None
 
