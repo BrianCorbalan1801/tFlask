@@ -25,12 +25,14 @@ def register():
             error = 'Ingrese una Contraseña.'
         elif veri_password != password:
             error = 'La contraseña no es igual'
+        elif not veri_email:
+            error = 'Ingrese un email.'
 
         if error is None:
             try:
                 db.execute(
-                    "INSERT INTO user (username, password, veri_password) VALUES (?, ?, ?)",
-                    (username, generate_password_hash(password), veri_password),
+                    "INSERT INTO user (username, password, veri_password, veri_email) VALUES (?, ?, ?, ?)",
+                    (username, generate_password_hash(password), veri_password, veri_email),
                 )
                 db.commit()
             except db.IntegrityError:
@@ -92,3 +94,24 @@ def login_required(view):
         return view(**kwargs)
 
     return wrapped_view
+
+@bp.route('/updateEmail', methods=('GET', 'POST'))
+def updateEmail():
+    if request.method == 'POST':
+        email = request.form['new_email']
+        error = None
+        db = get_db()
+        
+        if not email:
+            error = "Email is Required"
+
+        if error is None:
+            db.execute(
+                'UPDATE user SET veri_email = ? WHERE id = ?',
+                (email, g.user['id'])
+            )
+            db.commit()
+            return redirect(url_for('index'))
+        else:
+            flash(error)
+    return render_template('auth/updateemail.html')
