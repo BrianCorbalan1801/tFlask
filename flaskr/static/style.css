@@ -1,9 +1,9 @@
-html { font-family: sans-serif; background: #000000; padding: 1rem; }
-body { max-width: 960px; margin: 0 auto; background: rgb(24, 24, 24); }
-h1 { font-family: serif; color: #4b023b; margin: 1rem 0; }
-a { color: #4b023b; }
-hr { border: none; border-top: 1px solid rgb(58, 58, 58); }
-nav { background: #2d2e2e; display: flex; align-items: center; padding: 0 0.5rem; }
+html { font-family: sans-serif; background: rgb(34, 142, 204); padding: 1rem; }
+body { max-width: 960px; margin: 0 auto; background: rgb(205, 236, 255); }
+h1 { font-family: serif; color: rgb(0, 81, 255); margin: 1rem 0; }
+a { color: rgb(0, 81, 255); }
+hr { border: none; border-top: 1px solid rgb(83, 83, 83); }
+nav { background: rgb(110, 200, 252); display: flex; align-items: center; padding: 0 0.5rem; }
 nav h1 { flex: auto; margin: 0; }
 nav h1 a { text-decoration: none; padding: 0.25rem 0.5rem; }
 nav ul  { display: flex; list-style: none; margin: 0; padding: 0; }
